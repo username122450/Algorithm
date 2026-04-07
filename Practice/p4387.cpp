@@ -12,15 +12,15 @@ bool isQueue(vector<int> push,vector<int> pop ,int n){
     while(sh < n){
         s.push(push[sh]);
         // cout << push[sh] << "入栈"<<endl;
-        while(op < n && s.top() == pop[op]){
+        while(op < n &&!s.empty()&& s.top() == pop[op]){
             
             s.pop();
             op++;
         }
         sh++;
     }
-    if(op != n) return false;
-    return true;
+    
+    return op==n;
 }
 
 int main(){
